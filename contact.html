@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Связаться с Русланом Кондратьевым</title>
+  <title>Связаться</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -24,60 +24,45 @@
   </div>
 </header>
 
-<!-- Главная секция -->
-<section class="hero">
-  <div class="container">
+<!-- Параллакс секция -->
+<section class="parallax-section" style="background-image: url('https://picsum.photos/seed/contact/1600/900');">
+  <div class="parallax-content">
     <h2>Свяжитесь со мной</h2>
-    <p>Хотите заказать таплинк или обсудить проект? Заполните форму ниже.</p>
+    <p>Хотите заказать таплинк? Напишите!</p>
   </div>
 </section>
 
-<!-- Форма контактов -->
+<!-- Форма -->
 <section class="content-section scroll-reveal">
   <div class="container">
-    <div class="contact-card">
-      <form id="contact-form" class="modern-form">
-        <div class="form-row">
-          <div class="input-group">
-            <i class="fas fa-user icon"></i>
-            <label for="name">Ваше имя</label>
-            <input type="text" id="name" name="name" required />
-            <span class="bar"></span>
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="input-group">
-            <i class="fas fa-envelope icon"></i>
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required />
-            <span class="bar"></span>
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="input-group">
-            <i class="fas fa-comment-dots icon"></i>
-            <label for="message">Сообщение</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
-            <span class="bar"></span>
-          </div>
-        </div>
-
-        <button type="submit" class="submit-btn">
-          Отправить сообщение &rarr;
-        </button>
-
-        <div id="form-response" class="form-message"></div>
-      </form>
-    </div>
+    <form id="contact-form">
+      <div class="form-group">
+        <i class="fas fa-user icon"></i>
+        <label for="name">Ваше имя</label>
+        <input type="text" id="name" required />
+        <span class="bar"></span>
+      </div>
+      <div class="form-group">
+        <i class="fas fa-envelope icon"></i>
+        <label for="email">Email</label>
+        <input type="email" id="email" required />
+        <span class="bar"></span>
+      </div>
+      <div class="form-group">
+        <i class="fas fa-comment-dots icon"></i>
+        <label for="message">Сообщение</label>
+        <textarea id="message" rows="5" required></textarea>
+        <span class="bar"></span>
+      </div>
+      <button type="submit" class="btn-gradient">Отправить</button>
+    </form>
   </div>
 </section>
 
 <!-- Подвал -->
 <footer class="footer">
   <div class="container">
-    <p>&copy; 2025 Руслан Кондратьев. Все права защищены.</p>
+    <p>&copy; 2025 Руслан Кондратьев</p>
   </div>
 </footer>
 
