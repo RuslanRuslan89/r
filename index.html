@@ -8,6 +8,55 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <script defer src="script.js"></script>
+
+  <style>
+    /* === Tooltip (встроенный стиль) === */
+    .tooltip {
+      position: relative;
+      display: inline-block;
+      cursor: help;
+      color: #7e57c2; 
+      font-size: 0.9rem;
+      margin-left: 5px;
+    }
+
+    .tooltip .tooltip-text {
+      visibility: hidden;
+      width: max-content;
+      max-width: 300px;
+      background: #333;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 8px 12px;
+      position: absolute;
+      z-index: 1000;
+      bottom: 125%;
+      left: 50%;
+      margin-left: -60px;
+      opacity: 0;
+      transition: opacity 0.3s;
+      font-size: 0.9rem;
+      white-space: nowrap;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .tooltip .tooltip-text::after {
+      content: " ";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: #333 transparent transparent transparent;
+    }
+
+    .tooltip:hover .tooltip-text {
+      visibility: visible;
+      opacity: 1;
+    }
+  </style>
 </head>
 <body>
 
@@ -33,24 +82,29 @@
   </div>
 </section>
 
-<!-- Волны сверху -->
-<div class="wave-background-top">
-  <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
-       preserveAspectRatio="none">
-    <path d="M0,0V46.29c47.79,16.38,95.58,32.76,143.37,39.14,47.79,6.38,95.58,2.76,143.37,0C334.59,85.43,382.38,69.05,430.17,52.67,477.96,36.29,525.75,19.91,573.54,13.53,621.33,7.15,669.12,10.77,716.91,14.39,764.7,18.01,812.49,21.63,860.28,25.25c47.79,3.62,95.58,7.24,143.37,10.86,47.79,3.62,95.58,7.24,119.49,10.86v28.25H0V0Z"
-          fill="#7e57c2"></path> 
-  </svg>
-</div>
-
 <!-- Контент -->
 <section class="content-section scroll-reveal">
   <div class="container">
     <h3>Что я делаю?</h3>
     <ul>
-      <li>Таплинки под соцсети: Instagram, Telegram, TikTok, YouTube, VK</li>
-      <li>Мультиссылки с кнопками, медиа и QR-кодами</li>
-      <li>Адаптивный дизайн под все устройства</li>
-      <li>Интеграция с аналитикой и платежными системами</li>
+      <li>
+        Таплинки под соцсети 
+        <span class="tooltip">?
+          <span class="tooltip-text">Таплинк — это страница с несколькими ссылками</span>
+        </span>
+      </li>
+      <li>
+        Мультиссылки с кнопками и медиа 
+        <span class="tooltip">?
+          <span class="tooltip-text">Можно использовать как цифровую визитку</span>
+        </span>
+      </li>
+      <li>
+        Адаптивный дизайн 
+        <span class="tooltip">?
+          <span class="tooltip-text">Работает на любом устройстве</span>
+        </span>
+      </li>
     </ul>
   </div>
 </section>
@@ -72,16 +126,27 @@
       <div class="form-group">
         <i class="fas fa-user icon"></i>
         <input type="text" id="modal-name" placeholder="Ваше имя" required />
+        <span class="tooltip">?
+          <span class="tooltip-text">Например: Иван Иванов</span>
+        </span>
       </div>
       <div class="form-group">
         <i class="fas fa-envelope icon"></i>
         <input type="email" id="modal-email" placeholder="Email" required />
+        <span class="tooltip">?
+          <span class="tooltip-text">На этот email придет ответ</span>
+        </span>
       </div>
       <div class="form-group">
         <i class="fas fa-comment-dots icon"></i>
         <textarea id="modal-message" rows="5" placeholder="Как я могу помочь?" required></textarea>
+        <span class="tooltip">?
+          <span class="tooltip-text">Кратко опиши свой запрос</span>
+        </span>
       </div>
       <button type="submit" class="submit-btn">Отправить сообщение &rarr;</button>
     </form>
   </div>
 </div>
+</body>
+</html>
