@@ -16,17 +16,3 @@ document.addEventListener("DOMContentLoaded", () => {
     observer.observe(section);
   });
 });
-
-// Динамический параллакс
-document.addEventListener("DOMContentLoaded", () => {
-  const layers = document.querySelectorAll(".layer");
-
-  window.addEventListener("scroll", () => {
-    const scrollY = window.scrollY;
-
-    layers.forEach(el => {
-      const speed = parseFloat(el.getAttribute("data-speed")) || 0.2;
-      el.style.transform = `translateY(${scrollY * speed}px)`;
-    });
-  });
-});
