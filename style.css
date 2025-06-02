@@ -183,3 +183,23 @@ body {
   padding: 2.5rem 0;
   text-align: center;
 }
+/* === Кнопка с градиентом === */
+.btn-gradient {
+  display: inline-block;
+  background: linear-gradient(to right, #7e57c2, #ce93d8);
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin-top: 1.5rem;
+}
+
+.btn-gradient:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
