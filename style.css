@@ -1,6 +1,4 @@
-/* Подключение Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-
+/* Общие стили */
 * {
   margin: 0;
   padding: 0;
@@ -10,8 +8,8 @@
 body {
   font-family: 'Inter', sans-serif;
   line-height: 1.6;
-  background-color: #f5f5f5; 
-  color: #222;
+  background: #f5f5f5;
+  color: #333;
   scroll-behavior: smooth;
 }
 
@@ -23,20 +21,16 @@ body {
 
 /* === Шапка === */
 .header {
-  background: #ffffff;
+  background: white;
   padding: 1.5rem 0;
   position: sticky;
   top: 0;
   z-index: 1000;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  border-bottom: 1px solid #eee;
 }
 
 .header h1 {
   font-size: 2.2rem;
-  font-weight: 700;
-  color: #333;
-  letter-spacing: -0.5px;
 }
 
 .header nav {
@@ -48,7 +42,6 @@ body {
 .header a {
   text-decoration: none;
   color: #555;
-  font-weight: 500;
   transition: color 0.3s ease;
 }
 
@@ -56,147 +49,110 @@ body {
   color: #6a1b9a;
 }
 
-/* === Главная секция === */
-.hero {
-  background: linear-gradient(135deg, #7e57c2, #ce93d8);
-  color: white;
-  padding: 5rem 0;
-  text-align: center;
-}
-
-.hero h2 {
-  font-size: 2.8rem;
-  margin-bottom: 1rem;
-  font-weight: 700;
-}
-
-.hero p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-  opacity: 0.9;
-}
-
-.btn {
-  display: inline-block;
-  background: #d1c4e9;
-  color: #333;
-  padding: 0.8rem 1.8rem;
-  border-radius: 8px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.btn:hover {
-  background: #b39ddb;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-/* === Контентные секции === */
-.content-section {
-  background: white;
-  padding: 4rem 0;
-  margin-top: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-}
-
-.content-section h3 {
-  font-size: 1.6rem;
-  margin-bottom: 1rem;
-  color: #4a148c;
-}
-
-.content-section ul {
-  list-style: disc inside;
-  margin-left: 1rem;
-}
-
-/* === Современная форма с иконками === */
-.contact-card {
-  background: white;
-  padding: 2.5rem;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
-  max-width: 700px;
-  margin: 2rem auto;
-}
-
-.modern-form .form-row {
-  margin-bottom: 2rem;
-}
-
-.input-group {
+/* === Многослойный параллакс === */
+.multi-parallax {
   position: relative;
+  height: 100vh;
+  overflow: hidden;
 }
 
-.input-group label {
+.layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.layer-bg {
+  background-image: url('https://picsum.photos/seed/parallaxbg/1600/900'); 
+  z-index: 1;
+}
+
+.layer-clouds {
+  background-image: url('https://picsum.photos/seed/clouds/1600/900'); 
+  opacity: 0.6;
+  z-index: 2;
+}
+
+.parallax-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  color: white;
+  padding: 2rem;
+}
+
+.parallax-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.parallax-content p {
+  font-size: 1.2rem;
+}
+
+/* === Простая параллакс-секция === */
+.parallax-section {
+  position: relative;
+  height: 60vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.parallax-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.parallax-content p {
+  font-size: 1.2rem;
+}
+
+/* === Форма контактов === */
+.form-group {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.form-group label {
   position: absolute;
   top: -12px;
   left: 32px;
   background: white;
   font-size: 0.85rem;
   color: #7e57c2;
-  transition: all 0.2s ease;
   pointer-events: none;
   padding: 0 5px;
 }
 
-.input-group input,
-.input-group textarea {
+.form-group input,
+.form-group textarea {
   width: 100%;
   padding: 1rem 1rem 0.5rem 2.5rem;
   border: none;
   border-radius: 8px;
   background: #f8f9fa;
-  font-size: 1rem;
-  resize: vertical;
   outline: none;
   transition: all 0.3s ease;
 }
 
-.input-group input:focus,
-.input-group textarea:focus {
-  box-shadow: 0 0 0 3px rgba(126, 87, 194, 0.3);
-}
-
-.input-group input:focus + .bar,
-.input-group input:not(:placeholder-shown) + .bar,
-.input-group textarea:focus + .bar,
-.input-group textarea:not(:placeholder-shown) + .bar {
-  width: 100%;
-}
-
-.bar {
-  display: block;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 2px;
-  background: #7e57c2;
-  width: 0;
-  transition: width 0.3s ease;
-}
-
-/* === Иконки === */
 .icon {
   position: absolute;
   left: 10px;
   top: 12px;
   color: #7e57c2;
   font-size: 1.1rem;
-  pointer-events: none;
-  transition: color 0.3s ease;
 }
 
-.input-group input:focus ~ .icon,
-.input-group textarea:focus ~ .icon {
-  color: #6a1b9a;
-}
-
-/* === Кнопка === */
-.submit-btn {
+.btn-gradient {
   background: linear-gradient(to right, #7e57c2, #ce93d8);
   color: white;
   border: none;
@@ -205,48 +161,10 @@ body {
   font-weight: 600;
   border-radius: 30px;
   cursor: pointer;
-  display: inline-block;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-.submit-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-}
-
-/* === Сообщения об успехе/ошибке === */
-.form-message {
-  margin-top: 1rem;
-  padding: 1rem;
-  border-radius: 8px;
-  font-weight: 500;
-}
-
-.form-message.success {
-  background-color: #e8f5e9;
-  color: #2e7d32;
-}
-
-.form-message.error {
-  background-color: #ffebee;
-  color: #c62828;
-}
-
-/* === Подвал === */
-.footer {
-  background: #2e085e;
-  color: #ddd;
-  padding: 2.5rem 0;
-  text-align: center;
-  font-size: 0.95rem;
-}
-
-.footer p {
-  margin: 0;
-}
-
-/* === Анимация при скролле === */
+/* === Анимация скролла === */
 .scroll-reveal {
   opacity: 0;
   transform: translateY(40px);
@@ -256,4 +174,12 @@ body {
 .scroll-reveal.active {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* === Подвал === */
+.footer {
+  background: #2e085e;
+  color: #ddd;
+  padding: 2.5rem 0;
+  text-align: center;
 }
