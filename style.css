@@ -21,7 +21,7 @@ body {
   margin: auto;
 }
 
-/* Шапка */
+/* === Шапка === */
 .header {
   background: #ffffff;
   padding: 1.5rem 0;
@@ -56,7 +56,7 @@ body {
   color: #6a1b9a;
 }
 
-/* Главная секция */
+/* === Главная секция === */
 .hero {
   background: linear-gradient(135deg, #7e57c2, #ce93d8);
   color: white;
@@ -93,7 +93,7 @@ body {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Контентные секции */
+/* === Контентные секции === */
 .content-section {
   background: white;
   padding: 4rem 0;
@@ -113,105 +113,7 @@ body {
   margin-left: 1rem;
 }
 
-/* Подвал */
-.footer {
-  background: #2e085e;
-  color: #ddd;
-  padding: 2.5rem 0;
-  text-align: center;
-  font-size: 0.95rem;
-}
-
-.footer p {
-  margin: 0;
-}
-
-/* Анимация при скролле */
-.scroll-reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s ease-out;
-}
-
-.scroll-reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-/* === Форма контактов === */
-.contact-form {
-  max-width: 600px;
-  margin: 2rem auto 0;
-}
-
-.form-group {
-  margin-bottom: 1.5rem;
-}
-
-.form-group label {
-  display: block;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: #4a148c;
-}
-
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  background-color: #f9f9f9;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: #7e57c2;
-  background-color: #fff;
-  box-shadow: 0 0 0 3px rgba(126, 87, 194, 0.2);
-}
-
-/* Кнопка с градиентом */
-.btn-gradient {
-  background: linear-gradient(to right, #7e57c2, #ce93d8);
-  color: white;
-  border: none;
-  padding: 0.75rem 2rem;
-  font-size: 1rem;
-  font-weight: 600;
-  border-radius: 30px;
-  cursor: pointer;
-  display: inline-block;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-.btn-gradient:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-}
-
-/* Сообщение об успехе/ошибке (JS можно добавить отдельно) */
-#contact-form .success,
-#contact-form .error {
-  padding: 1rem;
-  margin-top: 1rem;
-  border-radius: 8px;
-  font-weight: 600;
-}
-
-#contact-form .success {
-  background: #e8f5e9;
-  color: #2e7d32;
-}
-
-#contact-form .error {
-  background: #ffebee;
-  color: #c62828;
-}
-/* === Современная форма === */
+/* === Современная форма с иконками === */
 .contact-card {
   background: white;
   padding: 2.5rem;
@@ -232,7 +134,7 @@ body {
 .input-group label {
   position: absolute;
   top: -12px;
-  left: 12px;
+  left: 32px;
   background: white;
   font-size: 0.85rem;
   color: #7e57c2;
@@ -244,7 +146,7 @@ body {
 .input-group input,
 .input-group textarea {
   width: 100%;
-  padding: 1rem 1rem 0.5rem 1rem;
+  padding: 1rem 1rem 0.5rem 2.5rem;
   border: none;
   border-radius: 8px;
   background: #f8f9fa;
@@ -277,6 +179,23 @@ body {
   transition: width 0.3s ease;
 }
 
+/* === Иконки === */
+.icon {
+  position: absolute;
+  left: 10px;
+  top: 12px;
+  color: #7e57c2;
+  font-size: 1.1rem;
+  pointer-events: none;
+  transition: color 0.3s ease;
+}
+
+.input-group input:focus ~ .icon,
+.input-group textarea:focus ~ .icon {
+  color: #6a1b9a;
+}
+
+/* === Кнопка === */
 .submit-btn {
   background: linear-gradient(to right, #7e57c2, #ce93d8);
   color: white;
@@ -296,6 +215,7 @@ body {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
+/* === Сообщения об успехе/ошибке === */
 .form-message {
   margin-top: 1rem;
   padding: 1rem;
@@ -311,4 +231,29 @@ body {
 .form-message.error {
   background-color: #ffebee;
   color: #c62828;
+}
+
+/* === Подвал === */
+.footer {
+  background: #2e085e;
+  color: #ddd;
+  padding: 2.5rem 0;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.footer p {
+  margin: 0;
+}
+
+/* === Анимация при скролле === */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+}
+
+.scroll-reveal.active {
+  opacity: 1;
+  transform: translateY(0);
 }
