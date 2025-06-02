@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add("active");
-        observer.unobserve(entry.target); // чтобы не повторялось
       }
     });
   }, {
@@ -18,24 +17,16 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// Обработка формы
-document.getElementById('contact-form')?.addEventListener('submit', function (e) {
-  e.preventDefault();
+// Динамический параллакс
+document.addEventListener("DOMContentLoaded", () => {
+  const layers = document.querySelectorAll(".layer");
 
-  const name = document.getElementById('name').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const message = document.getElementById('message').value.trim();
-  const responseDiv = document.getElementById('form-response');
+  window.addEventListener("scroll", () => {
+    const scrollY = window.scrollY;
 
-  if (!name || !email || !message) {
-    responseDiv.className = 'form-message error';
-    responseDiv.textContent = 'Пожалуйста, заполните все поля.';
-    return;
-  }
-
-  // Очистка формы и показ сообщения
-  responseDiv.className = 'form-message success';
-  responseDiv.textContent = `Спасибо, ${name}! Мы скоро свяжемся с вами.`;
-
-  this.reset(); // Сброс формы
+    layers.forEach(el => {
+      const speed = parseFloat(el.getAttribute("data-speed")) || 0.2;
+      el.style.transform = `translateY(${scrollY * speed}px)`;
+    });
+  });
 });
