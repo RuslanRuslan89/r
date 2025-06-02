@@ -10,8 +10,60 @@
   <script defer src="script.js"></script>
 
   <style>
+    /* Фон с волнами */
+    .wave-background {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+      z-index: -1;
+    }
+
+    .wave-background svg {
+      display: block;
+      width: calc(100% + 1.3px);
+      height: auto;
+    }
+
+    /* Аватарка */
+    .avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #fff; 
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      margin-bottom: 1rem;
+    }
+
+    /* Обёртка формы */
+    .form-container {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Контейнер с аватаром и формой */
+    .profile-form-wrapper {
+      text-align: center;
+      padding: 2rem 0;
+    }
+
+    .profile-form-wrapper h2 {
+      margin-top: 1rem;
+      font-size: 2rem;
+      color: white;
+    }
+
+    .profile-form-wrapper p {
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 2rem;
+    }
+
+    /* Стиль формы */
     .form-wrapper {
-      background: linear-gradient(145deg, #ffffff, #f9f9fc); 
+      background: linear-gradient(145deg, #ffffff, #f9f9fc);
       padding: 2rem;
       border-radius: 16px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
@@ -117,16 +169,17 @@
   </div>
 </header>
 
-<!-- Hero -->
+<!-- Волны сверху -->
 <section class="hero">
-  <div class="container">
+  <div class="profile-form-wrapper">
+    <img src="https://i.pravatar.cc/150?u=ruslan" alt="Руслан Кондратьев" class="avatar" />
     <h2>Свяжитесь со мной</h2>
-    <p>Хотите заказать таплинк? Заполните форму ниже или напишите мне в Telegram.</p>
+    <p>Хотите заказать таплинк? Заполните форму ниже.</p>
   </div>
 </section>
 
 <!-- Форма -->
-<section class="content-section scroll-reveal">
+<section class="content-section scroll-reveal form-container">
   <div class="container">
     <div class="form-wrapper">
       <form id="contact-form">
@@ -147,6 +200,15 @@
     </div>
   </div>
 </section>
+
+<!-- Волны внизу -->
+<div class="wave-background">
+  <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+       preserveAspectRatio="none">
+    <path d="M0,0V46.29c47.79,16.38,95.58,32.76,143.37,39.14,47.79,6.38,95.58,2.76,143.37,0C334.59,85.43,382.38,69.05,430.17,52.67,477.96,36.29,525.75,19.91,573.54,13.53,621.33,7.15,669.12,10.77,716.91,14.39,764.7,18.01,812.49,21.63,860.28,25.25c47.79,3.62,95.58,7.24,143.37,10.86,47.79,3.62,95.58,7.24,119.49,10.86v28.25H0V0Z"
+          fill="#7e57c2"></path> 
+  </svg>
+</div>
 
 <!-- Подвал -->
 <footer class="footer">
