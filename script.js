@@ -23,19 +23,17 @@ document.getElementById('contact-form')?.addEventListener('submit', function (e)
   const name = document.getElementById('name').value.trim();
   const email = document.getElementById('email').value.trim();
   const message = document.getElementById('message').value.trim();
+  const responseDiv = document.getElementById('form-response');
 
   if (!name || !email || !message) {
-    alert('Пожалуйста, заполните все поля');
+    responseDiv.className = 'form-message error';
+    responseDiv.textContent = 'Пожалуйста, заполните все поля.';
     return;
   }
 
-  // Здесь можно добавить код для реальной отправки формы (например через EmailJS)
-  // Сейчас просто показываем сообщение
+  // Очистка формы и показ сообщения
+  responseDiv.className = 'form-message success';
+  responseDiv.textContent = `Спасибо, ${name}! Мы скоро свяжемся с вами.`;
 
-  const form = this;
-  form.innerHTML = `
-    <div class="success">
-      Спасибо, ${name}! Ваше сообщение отправлено. Я свяжусь с вами в ближайшее время.
-    </div>
-  `;
+  this.reset(); // Сброс формы
 });
