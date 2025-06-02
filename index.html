@@ -6,6 +6,7 @@
   <title>Руслан Кондратьев | Таплинки</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <script defer src="script.js"></script>
 </head>
 <body>
@@ -28,9 +29,18 @@
   <div class="container">
     <h2>Создаю таплинки и мультиссылки</h2>
     <p>Продающие страницы для Instagram, Telegram, TikTok и других площадок.</p>
-    <a href="contact.html" class="btn-gradient">Заказать сейчас &rarr;</a>
+    <button id="openModalBtn" class="btn-gradient">Заказать сейчас &rarr;</button>
   </div>
 </section>
+
+<!-- Волны сверху -->
+<div class="wave-background-top">
+  <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+       preserveAspectRatio="none">
+    <path d="M0,0V46.29c47.79,16.38,95.58,32.76,143.37,39.14,47.79,6.38,95.58,2.76,143.37,0C334.59,85.43,382.38,69.05,430.17,52.67,477.96,36.29,525.75,19.91,573.54,13.53,621.33,7.15,669.12,10.77,716.91,14.39,764.7,18.01,812.49,21.63,860.28,25.25c47.79,3.62,95.58,7.24,143.37,10.86,47.79,3.62,95.58,7.24,119.49,10.86v28.25H0V0Z"
+          fill="#7e57c2"></path> 
+  </svg>
+</div>
 
 <!-- Контент -->
 <section class="content-section scroll-reveal">
@@ -45,20 +55,6 @@
   </div>
 </section>
 
-<!-- Преимущества -->
-<section class="content-section scroll-reveal">
-  <div class="container">
-    <h3>Почему выбирают меня?</h3>
-    <p>Я создаю не просто страницы, а инструменты продвижения:</p>
-    <ul>
-      <li>✅ Индивидуальный подход к каждому проекту</li>
-      <li>✅ Быстрая реализация: от идеи до готового продукта за 1–3 дня</li>
-      <li>✅ Прозрачная стоимость: никаких скрытых платежей</li>
-      <li>✅ Поддержка после запуска</li>
-    </ul>
-  </div>
-</section>
-
 <!-- Подвал -->
 <footer class="footer">
   <div class="container">
@@ -66,5 +62,26 @@
   </div>
 </footer>
 
-</body>
-</html>
+<!-- Модальное окно -->
+<div class="modal" id="contactModal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <img src="https://i.pravatar.cc/150?u=ruslan" alt="Руслан Кондратьев" class="avatar" />
+    <h2>Свяжитесь со мной</h2>
+    <form id="modal-contact-form">
+      <div class="form-group">
+        <i class="fas fa-user icon"></i>
+        <input type="text" id="modal-name" placeholder="Ваше имя" required />
+      </div>
+      <div class="form-group">
+        <i class="fas fa-envelope icon"></i>
+        <input type="email" id="modal-email" placeholder="Email" required />
+      </div>
+      <div class="form-group">
+        <i class="fas fa-comment-dots icon"></i>
+        <textarea id="modal-message" rows="5" placeholder="Как я могу помочь?" required></textarea>
+      </div>
+      <button type="submit" class="submit-btn">Отправить сообщение &rarr;</button>
+    </form>
+  </div>
+</div>
