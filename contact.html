@@ -8,6 +8,54 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <script defer src="script.js"></script>
+
+  <style>
+    .tooltip {
+      position: relative;
+      display: inline-block;
+      cursor: help;
+      color: #7e57c2; 
+      font-size: 0.9rem;
+      margin-left: 5px;
+    }
+
+    .tooltip .tooltip-text {
+      visibility: hidden;
+      width: max-content;
+      max-width: 300px;
+      background: #333;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 8px 12px;
+      position: absolute;
+      z-index: 1000;
+      bottom: 125%;
+      left: 50%;
+      margin-left: -60px;
+      opacity: 0;
+      transition: opacity 0.3s;
+      font-size: 0.9rem;
+      white-space: nowrap;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .tooltip .tooltip-text::after {
+      content: " ";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: #333 transparent transparent transparent;
+    }
+
+    .tooltip:hover .tooltip-text {
+      visibility: visible;
+      opacity: 1;
+    }
+  </style>
 </head>
 <body>
 
@@ -27,7 +75,7 @@
 <!-- Hero -->
 <section class="hero">
   <div class="profile-form-wrapper">
-    <img src="https://raw.githubusercontent.com/RuslanRuslan89/r/main/img/me.jpg" alt="Руслан Кондратьев" class="avatar" />
+    <img src="https://raw.githubusercontent.com/RuslanRuslan89/r/main/img/me.jpg"  alt="Руслан Кондратьев" class="avatar" />
     <h2>Свяжитесь со мной</h2>
     <p>Хотите заказать таплинк? Заполните форму ниже.</p>
     <button id="openModalBtn" class="btn-gradient">Написать через форму &rarr;</button>
@@ -51,16 +99,27 @@
       <div class="form-group">
         <i class="fas fa-user icon"></i>
         <input type="text" id="modal-name" placeholder="Ваше имя" required />
+        <span class="tooltip">?
+          <span class="tooltip-text">Например: Иван Иванов</span>
+        </span>
       </div>
       <div class="form-group">
         <i class="fas fa-envelope icon"></i>
         <input type="email" id="modal-email" placeholder="Email" required />
+        <span class="tooltip">?
+          <span class="tooltip-text">На этот email придет ответ</span>
+        </span>
       </div>
       <div class="form-group">
         <i class="fas fa-comment-dots icon"></i>
         <textarea id="modal-message" rows="5" placeholder="Как я могу помочь?" required></textarea>
+        <span class="tooltip">?
+          <span class="tooltip-text">Кратко опиши свой запрос</span>
+        </span>
       </div>
       <button type="submit" class="submit-btn">Отправить сообщение &rarr;</button>
     </form>
   </div>
 </div>
+</body>
+</html>
