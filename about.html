@@ -6,6 +6,7 @@
   <title>О Руслане Кондратьеве</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <script defer src="script.js"></script>
 </head>
 <body>
@@ -28,6 +29,7 @@
   <div class="container">
     <h2>Обо мне</h2>
     <p>Я создаю таплинки и мультиссылки уже более 3 лет. Работал с блогерами, стартапами и крупными брендами.</p>
+    <button id="openModalBtn" class="btn-gradient">Написать мне &rarr;</button>
   </div>
 </section>
 
@@ -61,5 +63,26 @@
   </div>
 </footer>
 
-</body>
-</html>
+<!-- Модальное окно -->
+<div class="modal" id="contactModal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <img src="https://i.pravatar.cc/150?u=ruslan" alt="Руслан Кондратьев" class="avatar" />
+    <h2>Свяжитесь со мной</h2>
+    <form id="modal-contact-form">
+      <div class="form-group">
+        <i class="fas fa-user icon"></i>
+        <input type="text" id="modal-name" placeholder="Ваше имя" required />
+      </div>
+      <div class="form-group">
+        <i class="fas fa-envelope icon"></i>
+        <input type="email" id="modal-email" placeholder="Email" required />
+      </div>
+      <div class="form-group">
+        <i class="fas fa-comment-dots icon"></i>
+        <textarea id="modal-message" rows="5" placeholder="Как я могу помочь?" required></textarea>
+      </div>
+      <button type="submit" class="submit-btn">Отправить сообщение &rarr;</button>
+    </form>
+  </div>
+</div>
