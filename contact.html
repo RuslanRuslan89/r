@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Связаться с Русланом Кондратьевым</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
   <script defer src="script.js"></script>
 </head>
@@ -33,24 +34,40 @@
 <!-- Форма контактов -->
 <section class="content-section scroll-reveal">
   <div class="container">
-    <form id="contact-form" class="contact-form">
-      <div class="form-group">
-        <label for="name">Ваше имя</label>
-        <input type="text" id="name" name="name" placeholder="Иван Иванов" required />
-      </div>
+    <div class="contact-card">
+      <form id="contact-form" class="modern-form">
+        <div class="form-row">
+          <div class="input-group">
+            <label for="name">Ваше имя</label>
+            <input type="text" id="name" name="name" required />
+            <span class="bar"></span>
+          </div>
+        </div>
 
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="example@email.com" required />
-      </div>
+        <div class="form-row">
+          <div class="input-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+            <span class="bar"></span>
+          </div>
+        </div>
 
-      <div class="form-group">
-        <label for="message">Сообщение</label>
-        <textarea id="message" name="message" rows="5" placeholder="Опишите ваш запрос..." required></textarea>
-      </div>
+        <div class="form-row">
+          <div class="input-group">
+            <label for="message">Сообщение</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+            <span class="bar"></span>
+          </div>
+        </div>
 
-      <button type="submit" class="btn-gradient">Отправить сообщение</button>
-    </form>
+        <button type="submit" class="submit-btn">
+          Отправить сообщение &rarr;
+        </button>
+
+        <!-- Сообщения об успехе/ошибке -->
+        <div id="form-response" class="form-message"></div>
+      </form>
+    </div>
   </div>
 </section>
 
