@@ -17,6 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
     observer.observe(section);
   });
 });
+
+// Обработка формы
 document.getElementById('contact-form')?.addEventListener('submit', function (e) {
   e.preventDefault();
 
