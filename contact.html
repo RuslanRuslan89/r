@@ -8,151 +8,6 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <script defer src="script.js"></script>
-
-  <style>
-    /* Фон с волнами */
-    .wave-background {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      overflow: hidden;
-      line-height: 0;
-      z-index: -1;
-    }
-
-    .wave-background svg {
-      display: block;
-      width: calc(100% + 1.3px);
-      height: auto;
-    }
-
-    /* Аватарка */
-    .avatar {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid #fff; 
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-      margin-bottom: 1rem;
-    }
-
-    /* Обёртка формы */
-    .form-container {
-      position: relative;
-      z-index: 1;
-    }
-
-    /* Контейнер с аватаром и формой */
-    .profile-form-wrapper {
-      text-align: center;
-      padding: 2rem 0;
-    }
-
-    .profile-form-wrapper h2 {
-      margin-top: 1rem;
-      font-size: 2rem;
-      color: white;
-    }
-
-    .profile-form-wrapper p {
-      color: rgba(255, 255, 255, 0.9);
-      margin-bottom: 2rem;
-    }
-
-    /* Стиль формы */
-    .form-wrapper {
-      background: linear-gradient(145deg, #ffffff, #f9f9fc);
-      padding: 2rem;
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-      max-width: 600px;
-      margin: auto;
-      border: 1px solid #e0e0e0;
-      transition: all 0.3s ease;
-    }
-
-    .form-wrapper:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-    }
-
-    .form-group {
-      position: relative;
-      margin-bottom: 1.5rem;
-    }
-
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      padding: 1rem 1rem 0.5rem 2.5rem;
-      border: none;
-      border-radius: 10px;
-      background-color: #f5f7fa;
-      font-size: 1rem;
-      outline: none;
-      transition: 0.3s;
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus {
-      background-color: #fff;
-      box-shadow: 0 0 0 3px rgba(126, 87, 194, 0.3);
-    }
-
-    .icon {
-      position: absolute;
-      left: 10px;
-      top: 12px;
-      color: #7e57c2;
-      font-size: 1.1rem;
-      pointer-events: none;
-      opacity: 0.6;
-    }
-
-    .form-group input::placeholder,
-    .form-group textarea::placeholder {
-      color: #aaa;
-      font-style: italic;
-      opacity: 0.7;
-    }
-
-    .submit-btn {
-      display: inline-block;
-      background: linear-gradient(to right, #7e57c2, #ce93d8);
-      color: white;
-      border: none;
-      padding: 0.8rem 2rem;
-      font-size: 1rem;
-      font-weight: 600;
-      border-radius: 30px;
-      cursor: pointer;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .submit-btn::after {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 300%;
-      height: 300%;
-      background: radial-gradient(circle at center, #ffffff30 0, transparent 80%);
-      transform: translate(-50%, -50%) scale(0);
-      border-radius: 50%;
-      pointer-events: none;
-      transition: transform 0.5s ease;
-    }
-
-    .submit-btn:active::after {
-      transform: translate(-50%, -50%) scale(1);
-      opacity: 0;
-    }
-  </style>
 </head>
 <body>
 
@@ -169,46 +24,15 @@
   </div>
 </header>
 
-<!-- Волны сверху -->
+<!-- Hero -->
 <section class="hero">
   <div class="profile-form-wrapper">
     <img src="https://i.pravatar.cc/150?u=ruslan" alt="Руслан Кондратьев" class="avatar" />
     <h2>Свяжитесь со мной</h2>
     <p>Хотите заказать таплинк? Заполните форму ниже.</p>
+    <button id="openModalBtn" class="btn-gradient">Написать через форму &rarr;</button>
   </div>
 </section>
-
-<!-- Форма -->
-<section class="content-section scroll-reveal form-container">
-  <div class="container">
-    <div class="form-wrapper">
-      <form id="contact-form">
-        <div class="form-group">
-          <i class="fas fa-user icon"></i>
-          <input type="text" id="name" placeholder="Ваше имя" required />
-        </div>
-        <div class="form-group">
-          <i class="fas fa-envelope icon"></i>
-          <input type="email" id="email" placeholder="Email" required />
-        </div>
-        <div class="form-group">
-          <i class="fas fa-comment-dots icon"></i>
-          <textarea id="message" rows="5" placeholder="Как я могу помочь?" required></textarea>
-        </div>
-        <button type="submit" class="submit-btn">Отправить сообщение &rarr;</button>
-      </form>
-    </div>
-  </div>
-</section>
-
-<!-- Волны внизу -->
-<div class="wave-background">
-  <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
-       preserveAspectRatio="none">
-    <path d="M0,0V46.29c47.79,16.38,95.58,32.76,143.37,39.14,47.79,6.38,95.58,2.76,143.37,0C334.59,85.43,382.38,69.05,430.17,52.67,477.96,36.29,525.75,19.91,573.54,13.53,621.33,7.15,669.12,10.77,716.91,14.39,764.7,18.01,812.49,21.63,860.28,25.25c47.79,3.62,95.58,7.24,143.37,10.86,47.79,3.62,95.58,7.24,119.49,10.86v28.25H0V0Z"
-          fill="#7e57c2"></path> 
-  </svg>
-</div>
 
 <!-- Подвал -->
 <footer class="footer">
@@ -217,5 +41,26 @@
   </div>
 </footer>
 
-</body>
-</html>
+<!-- Модальное окно -->
+<div class="modal" id="contactModal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <img src="https://i.pravatar.cc/150?u=ruslan" alt="Руслан Кондратьев" class="avatar" />
+    <h2>Свяжитесь со мной</h2>
+    <form id="modal-contact-form">
+      <div class="form-group">
+        <i class="fas fa-user icon"></i>
+        <input type="text" id="modal-name" placeholder="Ваше имя" required />
+      </div>
+      <div class="form-group">
+        <i class="fas fa-envelope icon"></i>
+        <input type="email" id="modal-email" placeholder="Email" required />
+      </div>
+      <div class="form-group">
+        <i class="fas fa-comment-dots icon"></i>
+        <textarea id="modal-message" rows="5" placeholder="Как я могу помочь?" required></textarea>
+      </div>
+      <button type="submit" class="submit-btn">Отправить сообщение &rarr;</button>
+    </form>
+  </div>
+</div>
