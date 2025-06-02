@@ -211,3 +211,104 @@ body {
   background: #ffebee;
   color: #c62828;
 }
+/* === Современная форма === */
+.contact-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+  max-width: 700px;
+  margin: 2rem auto;
+}
+
+.modern-form .form-row {
+  margin-bottom: 2rem;
+}
+
+.input-group {
+  position: relative;
+}
+
+.input-group label {
+  position: absolute;
+  top: -12px;
+  left: 12px;
+  background: white;
+  font-size: 0.85rem;
+  color: #7e57c2;
+  transition: all 0.2s ease;
+  pointer-events: none;
+  padding: 0 5px;
+}
+
+.input-group input,
+.input-group textarea {
+  width: 100%;
+  padding: 1rem 1rem 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  background: #f8f9fa;
+  font-size: 1rem;
+  resize: vertical;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+  box-shadow: 0 0 0 3px rgba(126, 87, 194, 0.3);
+}
+
+.input-group input:focus + .bar,
+.input-group input:not(:placeholder-shown) + .bar,
+.input-group textarea:focus + .bar,
+.input-group textarea:not(:placeholder-shown) + .bar {
+  width: 100%;
+}
+
+.bar {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: #7e57c2;
+  width: 0;
+  transition: width 0.3s ease;
+}
+
+.submit-btn {
+  background: linear-gradient(to right, #7e57c2, #ce93d8);
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+  display: inline-block;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.form-message {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.form-message.success {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.form-message.error {
+  background-color: #ffebee;
+  color: #c62828;
+}
