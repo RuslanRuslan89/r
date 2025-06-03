@@ -1,4 +1,29 @@
-/* Общие стили */
+/* === CSS Переменные для темы === */
+:root {
+  --bg-color: #f9f9f9;
+  --text-color: #333;
+  --card-bg: white;
+  --link-hover: #7e57c2;
+  --input-bg: #f5f7fa;
+  --btn-bg: #7e57c2;
+  --btn-text: white;
+  --footer-bg: #2e085e;
+  --footer-text: #ddd;
+}
+
+:root.dark-theme {
+  --bg-color: #121212;
+  --text-color: #f8f9fa;
+  --card-bg: #1e1e1e;
+  --link-hover: #ce93d8;
+  --input-bg: #2a2a2a;
+  --btn-bg: #ce93d8;
+  --btn-text: #fff;
+  --footer-bg: #1a1a1a;
+  --footer-text: #eee;
+}
+
+/* === Общие стили === */
 * {
   margin: 0;
   padding: 0;
@@ -8,9 +33,10 @@
 body {
   font-family: 'Inter', sans-serif;
   line-height: 1.6;
-  background: #f9f9f9;
-  color: #333;
+  background-color: var(--bg-color);
+  color: var(--text-color);
   scroll-behavior: smooth;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .container {
@@ -20,8 +46,10 @@ body {
 }
 
 /* === Шапка === */
-.header {
-  background: white;
+.header,
+.modern-header {
+  background: linear-gradient(135deg, #7e57c2, #ce93d8);
+  color: white;
   padding: 1.5rem 0;
   position: sticky;
   top: 0;
@@ -29,23 +57,27 @@ body {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
-.header h1 {
+.header h1,
+.modern-header .logo span {
   font-size: 2.2rem;
 }
 
-.header nav {
+.header nav,
+.modern-header .nav {
   display: flex;
   gap: 1.5rem;
   margin-top: 0.8rem;
 }
 
-.header a {
+.header a,
+.modern-header a {
   text-decoration: none;
   color: #555;
   transition: color 0.3s ease;
 }
 
-.header a:hover {
+.header a:hover,
+.modern-header a:hover {
   color: #6a1b9a;
 }
 
@@ -70,8 +102,8 @@ body {
 
 .btn-gradient {
   display: inline-block;
-  background: linear-gradient(to right, #7e57c2, #ce93d8);
-  color: white;
+  background: linear-gradient(to right, var(--btn-bg), #ce93d8);
+  color: var(--btn-text);
   border: none;
   padding: 0.8rem 2rem;
   font-size: 1rem;
@@ -89,7 +121,7 @@ body {
 
 /* === Секции с контентом === */
 .content-section {
-  background: white;
+  background: var(--card-bg);
   padding: 4rem 0;
   margin-top: 2rem;
   border-radius: 12px;
@@ -98,7 +130,7 @@ body {
 
 .content-section h3 {
   margin-bottom: 1rem;
-  color: #4a148c;
+  color: var(--link-hover);
 }
 
 /* === Форма внутри модального окна === */
@@ -115,7 +147,7 @@ body {
 }
 
 .modal-content {
-  background-color: #fff;
+  background-color: var(--card-bg);
   margin: 5% auto;
   padding: 2rem;
   border-radius: 16px;
@@ -123,6 +155,10 @@ body {
   max-width: 500px;
   position: relative;
   animation: fadeInDown 0.5s ease-in-out;
+}
+
+.modal-content h2 {
+  color: var(--text-color);
 }
 
 .close-btn {
@@ -138,9 +174,7 @@ body {
 
 .close-btn:hover,
 .close-btn:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
+  color: #f8f9fa;
 }
 
 .avatar {
@@ -164,10 +198,11 @@ body {
   padding: 1rem 1rem 0.5rem 2.5rem;
   border: none;
   border-radius: 10px;
-  background-color: #f5f7fa;
+  background-color: var(--input-bg);
   font-size: 1rem;
   outline: none;
   transition: 0.3s;
+  color: var(--text-color);
 }
 
 .form-group input:focus,
@@ -188,8 +223,8 @@ body {
 
 .submit-btn {
   display: inline-block;
-  background: linear-gradient(to right, #7e57c2, #ce93d8);
-  color: white;
+  background: linear-gradient(to right, var(--btn-bg), #ce93d8);
+  color: var(--btn-text);
   border: none;
   padding: 0.8rem 2rem;
   font-size: 1rem;
@@ -223,93 +258,10 @@ body {
 
 /* === Подвал === */
 .footer {
-  background: #2e085e;
-  color: #ddd;
+  background: var(--footer-bg);
+  color: var(--footer-text);
   padding: 2.5rem 0;
   text-align: center;
-}
-
-/* === Модальное окно === */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.7);
-}
-
-.modal-content {
-  background-color: #fff;
-  margin: 5% auto;
-  padding: 2rem;
-  border-radius: 16px;
-  width: 90%;
-  max-width: 500px;
-  position: relative;
-  animation: fadeInDown 0.5s ease-in-out;
-}
-
-.close-btn {
-  color: #aaa;
-  float: right;
-  font-size: 1.5rem;
-  font-weight: bold;
-  cursor: pointer;
-  position: absolute;
-  top: 10px;
-  right: 15px;
-}
-
-.close-btn:hover {
-  color: black;
-}
-
-.avatar {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 4px solid #fff;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  margin-bottom: 1rem;
-}
-
-/* === Форма внутри модального окна === */
-.form-group {
-  position: relative;
-  margin-bottom: 1.5rem;
-}
-
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 1rem 1rem 0.5rem 2.5rem;
-  border: none;
-  border-radius: 10px;
-  background-color: #f5f7fa;
-  font-size: 1rem;
-  outline: none;
-  transition: 0.3s;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-  background-color: #fff;
-  box-shadow: 0 0 0 3px rgba(126, 87, 194, 0.3);
-}
-
-.icon {
-  position: absolute;
-  left: 10px;
-  top: 12px;
-  color: #7e57c2;
-  font-size: 1.1rem;
-  pointer-events: none;
-  opacity: 0.6;
 }
 
 /* === Tooltip === */
@@ -456,8 +408,11 @@ body {
   cursor: pointer;
 }
 
-/* === Мобильное меню === */
 @media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
   .nav {
     position: fixed;
     top: 60px;
@@ -465,7 +420,6 @@ body {
     right: 0;
     background: #fff;
     flex-direction: column;
-    align-items: center;
     transform: translateY(-100%);
     opacity: 0;
     visibility: hidden;
@@ -491,87 +445,4 @@ body {
   .header-actions {
     display: none;
   }
-
-  .menu-toggle {
-    display: block;
-  }
-}
-body.dark-theme {
-  background-color: #121212;
-  color: #f8f9fa;
-}
-
-body.dark-theme .modern-header {
-  background: #121212;
-  box-shadow: 0 2px 10px rgba(255, 255, 255, 0.05);
-}
-
-body.dark-theme .nav a {
-  color: #f8f9fa;
-}
-
-body.dark-theme .logo span {
-  color: #f8f9fa;
-}
-
-body.dark-theme .btn-small {
-  background: #2a2a2a;
-  color: #fff;
-}
-
-body.dark-theme .btn-small:hover {
-  background: #4a4a4a;
-}
-
-:root {
-  --bg-color: #f9f9f9;
-  --text-color: #333;
-  --card-bg: white;
-  --link-hover: #7e57c2;
-}
-
-:root.dark-theme {
-  --bg-color: #121212;
-  --text-color: #f8f9fa;
-  --card-bg: #1e1e1e;
-  --link-hover: #ce93d8;
-}
-
-/* === Общий стиль === */
-body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  font-family: 'Inter', sans-serif;
-  line-height: 1.6;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* === Контентные секции === */
-.content-section {
-  background: var(--card-bg);
-  padding: 4rem 0;
-  margin-top: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-}
-
-/* === Форма === */
-.form-wrapper {
-  background: var(--card-bg);
-  color: var(--text-color);
-}
-
-.form-group input,
-.form-group textarea {
-  background-color: #f5f7fa;
-  color: var(--text-color);
-}
-
-/* === Ссылки === */
-.header a {
-  color: var(--text-color);
-}
-
-.header a:hover {
-  color: var(--link-hover);
 }
