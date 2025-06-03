@@ -21,8 +21,13 @@
 <!-- Шапка -->
 <header class="modern-header">
   <div class="container header-container">
-    <div class="logo">🇷🇺 taplink.site</div>
+    <!-- Логотип -->
+    <a href="index.html" class="logo">
+      <img src="https://i.pravatar.cc/40?u=ruslan" alt="Логотип" class="logo-icon" />
+      <span>Руслан Кондратьев</span>
+    </a>
 
+    <!-- Навигация -->
     <nav class="nav" id="main-nav">
       <a href="index.html">Главная</a>
       <a href="about.html">О себе</a>
@@ -30,6 +35,15 @@
       <a href="contact.html">Контакты</a>
     </nav>
 
+    <!-- Кнопки справа -->
+    <div class="header-actions">
+      <button class="theme-toggle" aria-label="Переключить тему">
+        <i class="fas fa-moon"></i>
+      </button>
+      <a href="contact.html" class="btn-small">Заказать сейчас</a>
+    </div>
+
+    <!-- Мобильное меню -->
     <button class="menu-toggle" aria-label="Открыть меню">
       <i class="fas fa-bars"></i>
     </button>
