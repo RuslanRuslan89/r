@@ -312,6 +312,7 @@ body {
   opacity: 0.6;
 }
 
+/* === Tooltip === */
 .tooltip {
   position: relative;
   display: inline-block;
@@ -324,7 +325,7 @@ body {
 .tooltip .tooltip-text {
   visibility: hidden;
   width: max-content;
-  max-width: 300px; /* Ширина подсказки */
+  max-width: 300px;
   background: #333;
   color: #fff;
   text-align: center;
@@ -332,23 +333,23 @@ body {
   padding: 8px 12px;
   position: absolute;
   z-index: 1000;
-  bottom: 125%; /* Сдвигаем вверх от элемента */
+  bottom: 125%;
   left: 50%;
-  margin-left: -60px;
+  transform: translateX(-50%);
   opacity: 0;
-  transition: opacity 0.3s;
+  transition: opacity 0.3s ease;
   font-size: 0.9rem;
+  white-space: normal;
+  word-wrap: break-word;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  white-space: normal; /* Основное изменение */
-  word-wrap: break-word; /* Перенос слов при длинных строках */
 }
 
 .tooltip .tooltip-text::after {
-  content: " ";
+  content: '';
   position: absolute;
   top: 100%;
   left: 50%;
-  margin-left: -5px;
+  transform: translateX(-50%);
   border-width: 5px;
   border-style: solid;
   border-color: #333 transparent transparent transparent;
