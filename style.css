@@ -522,3 +522,56 @@ body.dark-theme .btn-small {
 body.dark-theme .btn-small:hover {
   background: #4a4a4a;
 }
+
+:root {
+  --bg-color: #f9f9f9;
+  --text-color: #333;
+  --card-bg: white;
+  --link-hover: #7e57c2;
+}
+
+:root.dark-theme {
+  --bg-color: #121212;
+  --text-color: #f8f9fa;
+  --card-bg: #1e1e1e;
+  --link-hover: #ce93d8;
+}
+
+/* === Общий стиль === */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* === Контентные секции === */
+.content-section {
+  background: var(--card-bg);
+  padding: 4rem 0;
+  margin-top: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+/* === Форма === */
+.form-wrapper {
+  background: var(--card-bg);
+  color: var(--text-color);
+}
+
+.form-group input,
+.form-group textarea {
+  background-color: #f5f7fa;
+  color: var(--text-color);
+}
+
+/* === Ссылки === */
+.header a {
+  color: var(--text-color);
+}
+
+.header a:hover {
+  color: var(--link-hover);
+}
