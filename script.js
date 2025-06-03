@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // === Модальное окно ===
   const modal = document.getElementById("contactModal");
   const btn = document.getElementById("openModalBtn");
   const span = document.querySelector(".close-btn");
 
-  // === Открытие модального окна ===
   if (btn) {
     btn.onclick = function () {
       modal.style.display = "block";
@@ -22,8 +22,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  // === Отправка формы в Telegram ===
+  // === Форма в Telegram ===
   const form = document.getElementById("modal-contact-form");
+
   if (form) {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
@@ -70,70 +71,6 @@ Email: ${email}
       });
     });
   }
-});
-// === Бургер-меню ===
-document.addEventListener("DOMContentLoaded", () => {
-  const menuToggle = document.querySelector(".menu-toggle");
-  const nav = document.querySelector(".nav");
-
-  if (menuToggle && nav) {
-    menuToggle.addEventListener("click", () => {
-      nav.classList.toggle("active");
-    });
-  }
-
-  // === Переключение темы ===
-  const themeToggle = document.querySelector(".theme-toggle");
-
-  if (themeToggle) {
-    themeToggle.addEventListener("click", () => {
-      document.body.classList.toggle("dark-theme");
-      const isDark = document.body.classList.contains("dark-theme");
-      localStorage.setItem("theme", isDark ? "dark" : "light");
-      updateThemeButton(isDark);
-    });
-
-    function updateThemeButton(isDark) {
-      const icon = themeToggle.querySelector("i");
-      if (isDark) {
-        icon.classList.replace("fa-moon", "fa-sun");
-      } else {
-        icon.classList.replace("fa-sun", "fa-moon");
-      }
-    }
-
-    // Загрузка темы из localStorage
-    const savedTheme = localStorage.getItem("theme") === "dark";
-    if (savedTheme) {
-      document.body.classList.add("dark-theme");
-      updateThemeButton(true);
-    }
-  }
-});
-// === Переключатель темы ===
-document.addEventListener("DOMContentLoaded", () => {
-  const themeToggle = document.querySelector(".theme-toggle");
-
-  if (themeToggle) {
-    themeToggle.addEventListener("click", () => {
-      document.body.classList.toggle("dark-theme");
-      const isDark = document.body.classList.contains("dark-theme");
-      localStorage.setItem("theme", isDark ? "dark" : "light");
-      updateThemeButton(isDark);
-    });
-
-    function updateThemeButton(isDark) {
-      const icon = themeToggle.querySelector("i");
-      icon.classList.replace(isDark ? "fa-moon" : "fa-sun", isDark ? "fa-sun" : "fa-moon");
-    }
-
-    // Загружаем сохранённую тему
-    const savedTheme = localStorage.getItem("theme") === "dark";
-    if (savedTheme) {
-      document.body.classList.add("dark-theme");
-      updateThemeButton(true);
-    }
-  }
 
   // === Бургер-меню ===
   const menuToggle = document.querySelector(".menu-toggle");
@@ -143,5 +80,33 @@ document.addEventListener("DOMContentLoaded", () => {
     menuToggle.addEventListener("click", () => {
       nav.classList.toggle("active");
     });
+  }
+
+  // === Темная/светлая тема ===
+  const themeToggle = document.querySelector(".theme-toggle");
+
+  function updateThemeButton(isDark) {
+    const icon = themeToggle?.querySelector("i");
+    if (!icon) return;
+
+    icon.classList.replace(isDark ? "fa-moon" : "fa-sun", isDark ? "fa-sun" : "fa-moon");
+  }
+
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark-theme");
+      const isDark = document.body.classList.contains("dark-theme");
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+      updateThemeButton(isDark);
+    });
+
+    // Загружаем сохранённую тему
+    const savedTheme = localStorage.getItem("theme") === "dark";
+    if (savedTheme) {
+      document.body.classList.add("dark-theme");
+      updateThemeButton(true);
+    } else {
+      updateThemeButton(false);
+    }
   }
 });
