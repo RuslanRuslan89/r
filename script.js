@@ -110,3 +110,38 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 });
+// === Переключатель темы ===
+document.addEventListener("DOMContentLoaded", () => {
+  const themeToggle = document.querySelector(".theme-toggle");
+
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark-theme");
+      const isDark = document.body.classList.contains("dark-theme");
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+      updateThemeButton(isDark);
+    });
+
+    function updateThemeButton(isDark) {
+      const icon = themeToggle.querySelector("i");
+      icon.classList.replace(isDark ? "fa-moon" : "fa-sun", isDark ? "fa-sun" : "fa-moon");
+    }
+
+    // Загружаем сохранённую тему
+    const savedTheme = localStorage.getItem("theme") === "dark";
+    if (savedTheme) {
+      document.body.classList.add("dark-theme");
+      updateThemeButton(true);
+    }
+  }
+
+  // === Бургер-меню ===
+  const menuToggle = document.querySelector(".menu-toggle");
+  const nav = document.querySelector(".nav");
+
+  if (menuToggle && nav) {
+    menuToggle.addEventListener("click", () => {
+      nav.classList.toggle("active");
+    });
+  }
+});
