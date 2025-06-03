@@ -81,4 +81,32 @@ document.addEventListener("DOMContentLoaded", () => {
       nav.classList.toggle("active");
     });
   }
+
+  // === Переключение темы ===
+  const themeToggle = document.querySelector(".theme-toggle");
+
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark-theme");
+      const isDark = document.body.classList.contains("dark-theme");
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+      updateThemeButton(isDark);
+    });
+
+    function updateThemeButton(isDark) {
+      const icon = themeToggle.querySelector("i");
+      if (isDark) {
+        icon.classList.replace("fa-moon", "fa-sun");
+      } else {
+        icon.classList.replace("fa-sun", "fa-moon");
+      }
+    }
+
+    // Загрузка темы из localStorage
+    const savedTheme = localStorage.getItem("theme") === "dark";
+    if (savedTheme) {
+      document.body.classList.add("dark-theme");
+      updateThemeButton(true);
+    }
+  }
 });
