@@ -311,3 +311,50 @@ body {
   pointer-events: none;
   opacity: 0.6;
 }
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: help;
+  color: #7e57c2;
+  font-size: 0.9rem;
+  margin-left: 5px;
+}
+
+.tooltip .tooltip-text {
+  visibility: hidden;
+  width: max-content;
+  max-width: 300px; /* Ширина подсказки */
+  background: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 12px;
+  position: absolute;
+  z-index: 1000;
+  bottom: 125%; /* Сдвигаем вверх от элемента */
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  white-space: normal; /* Основное изменение */
+  word-wrap: break-word; /* Перенос слов при длинных строках */
+}
+
+.tooltip .tooltip-text::after {
+  content: " ";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
