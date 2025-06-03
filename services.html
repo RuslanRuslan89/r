@@ -9,53 +9,54 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <script defer src="script.js"></script>
 
-  <style>
-    .tooltip {
-      position: relative;
-      display: inline-block;
-      cursor: help;
-      color: #7e57c2; 
-      font-size: 0.9rem;
-      margin-left: 5px;
-    }
+ <style>
+  .tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: help;
+    color: #7e57c2;   
+    font-size: 0.9rem;
+    margin-left: 5px;
+  }
 
-    .tooltip .tooltip-text {
-      visibility: hidden;
-      width: max-content;
-      max-width: 300px;
-      background: #333;
-      color: #fff;
-      text-align: center;
-      border-radius: 6px;
-      padding: 8px 12px;
-      position: absolute;
-      z-index: 1000;
-      bottom: 125%;
-      left: 50%;
-      margin-left: -60px;
-      opacity: 0;
-      transition: opacity 0.3s;
-      font-size: 0.9rem;
-      white-space: nowrap;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    }
+  .tooltip .tooltip-text {
+    visibility: hidden;
+    width: max-content;
+    max-width: 300px;
+    background: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 12px;
+    position: absolute;
+    z-index: 1000;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 0.9rem;
+    white-space: normal; /* ✅ Исправлено */
+    word-wrap: break-word; /* ✅ Добавлено */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
 
-    .tooltip .tooltip-text::after {
-      content: " ";
-      position: absolute;
-      top: 100%;
-      left: 50%;
-      margin-left: -5px;
-      border-width: 5px;
-      border-style: solid;
-      border-color: #333 transparent transparent transparent;
-    }
+  .tooltip .tooltip-text::after {
+    content: " ";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+  }
 
-    .tooltip:hover .tooltip-text {
-      visibility: visible;
-      opacity: 1;
-    }
-  </style>
+  .tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+  }
+</style>
 </head>
 <body>
 
