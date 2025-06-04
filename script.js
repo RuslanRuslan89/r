@@ -110,3 +110,52 @@ Email: ${email}
     }
   }
 });
+document.addEventListener("DOMContentLoaded", () => {
+  const themeToggle = document.querySelector(".theme-toggle");
+
+  function updateThemeButton(isDark) {
+    const icon = themeToggle?.querySelector("i");
+    if (!icon) return;
+
+    icon.classList.replace(isDark ? "fa-moon" : "fa-sun", isDark ? "fa-sun" : "fa-moon");
+  }
+
+  // === Переключение темы ===
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark-theme");
+      const isDark = document.body.classList.contains("dark-theme");
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+      updateThemeButton(isDark);
+    });
+
+    // Восстановление темы из localStorage
+    const savedTheme = localStorage.getItem("theme") === "dark";
+    if (savedTheme) {
+      document.body.classList.add("dark-theme");
+      updateThemeButton(true);
+    } else {
+      updateThemeButton(false);
+    }
+  }
+
+  // === Мобильное меню ===
+  const menuToggle = document.querySelector(".menu-toggle");
+  const nav = document.querySelector(".nav");
+
+  if (menuToggle && nav) {
+    menuToggle.addEventListener("click", () => {
+      nav.classList.toggle("active");
+    });
+  }
+
+  // === Закрытие бургера при клике на ссылку ===
+  const navLinks = document.querySelectorAll(".nav a");
+  navLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      if (window.innerWidth <= 768) {
+        nav.classList.remove("active");
+      }
+    });
+  });
+});
