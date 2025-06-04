@@ -5,172 +5,123 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Руслан Кондратьев | Таплинки</title>
 
-  <!-- Новые шрифты -->
+  <!-- Шрифты -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
-  
+
   <!-- Стили -->
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  
+
   <!-- Скрипт -->
   <script defer src="script.js"></script>
 </head>
- <style>
-  /* === Tooltip (исправленный) === */
-  .tooltip {
-    position: relative;
-    display: inline-block;
-    cursor: help;
-    color: #7e57c2;   
-    font-size: 0.9rem;
-    margin-left: 5px;
-  }
+<body>
+  <!-- Шапка -->
+  <header class="modern-header">
+    <div class="container header-container">
+      <!-- Логотип -->
+      <a href="index.html" class="logo">
+        <img src="https://raw.githubusercontent.com/RuslanRuslan89/r/main/img/me.jpg" alt="Логотип" class="logo-icon" />
+        <span>Руслан Кондратьев</span>
+      </a>
 
-  .tooltip .tooltip-text {
-    visibility: hidden;
-    width: max-content;
-    max-width: 300px;
-    background: #333;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 8px 12px;
-    position: absolute;
-    z-index: 1000;
-    bottom: 125%;
-    left: 50%;
-    margin-left: -60px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    font-size: 0.9rem;
-    white-space: normal; /* ✅ Исправлено: было nowrap */
-    word-wrap: break-word;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  }
+      <!-- Навигация -->
+      <nav class="nav" id="main-nav">
+        <a href="index.html">Главная</a>
+        <a href="about.html">О себе</a>
+        <a href="services.html">Услуги</a>
+        <a href="contact.html">Контакты</a>
+      </nav>
 
-  .tooltip .tooltip-text::after {
-    content: " ";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #333 transparent transparent transparent;
-  }
+      <!-- Кнопки справа -->
+      <div class="header-actions">
+        <button class="theme-toggle" aria-label="Переключить тему">
+          <i class="fas fa-moon"></i>
+        </button>
+        <a href="contact.html" class="btn-small">Заказать сейчас</a>
+      </div>
 
-  .tooltip:hover .tooltip-text {
-    visibility: visible;
-    opacity: 1;
-  }
-</style>
-
-<!-- Шапка -->
-<header class="modern-header">
-  <div class="container header-container">
-    <!-- Логотип -->
-    <a href="index.html" class="logo">
-      <img src="https://raw.githubusercontent.com/RuslanRuslan89/r/main/img/me.jpg" alt="Логотип" class="logo-icon" />
-      <span>Руслан Кондратьев</span>
-    </a>
-
-    <!-- Навигация -->
-    <nav class="nav" id="main-nav">
-      <a href="index.html">Главная</a>
-      <a href="about.html">О себе</a>
-      <a href="services.html">Услуги</a>
-      <a href="contact.html">Контакты</a>
-    </nav>
-
-    <!-- Кнопки справа -->
-    <div class="header-actions">
-      <button class="theme-toggle" aria-label="Переключить тему">
-        <i class="fas fa-moon"></i>
+      <!-- Мобильное меню -->
+      <button class="menu-toggle" aria-label="Открыть меню">
+        <i class="fas fa-bars"></i>
       </button>
-      <a href="contact.html" class="btn-small">Заказать сейчас</a>
     </div>
+  </header>
 
-    <!-- Мобильное меню -->
-    <button class="menu-toggle" aria-label="Открыть меню">
-      <i class="fas fa-bars"></i>
-    </button>
-  </div>
-</header>
+  <!-- Основной блок -->
+  <section class="hero">
+    <div class="container">
+      <h2>Создаю таплинки и мультиссылки</h2>
+      <p>Продающие страницы для Instagram, Telegram, TikTok и других площадок.</p>
+      <button id="openModalBtn" class="btn-gradient">Заказать сейчас &rarr;</button>
+    </div>
+  </section>
 
-<!-- Основной блок -->
-<section class="hero">
-  <div class="container">
-    <h2>Создаю таплинки и мультиссылки</h2>
-    <p>Продающие страницы для Instagram, Telegram, TikTok и других площадок.</p>
-    <button id="openModalBtn" class="btn-gradient">Заказать сейчас &rarr;</button>
-  </div>
-</section>
+  <!-- Контент -->
+  <section class="content-section scroll-reveal">
+    <div class="container">
+      <h3>Что я делаю?</h3>
+      <ul>
+        <li>
+          Таплинки под соцсети 
+          <span class="tooltip">?
+            <span class="tooltip-text">Таплинк — это страница с несколькими ссылками</span>
+          </span>
+        </li>
+        <li>
+          Мультиссылки с кнопками и медиа 
+          <span class="tooltip">?
+            <span class="tooltip-text">Можно использовать как цифровую визитку</span>
+          </span>
+        </li>
+        <li>
+          Адаптивный дизайн 
+          <span class="tooltip">?
+            <span class="tooltip-text">Работает на любом устройстве</span>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </section>
 
-<!-- Контент -->
-<section class="content-section scroll-reveal">
-  <div class="container">
-    <h3>Что я делаю?</h3>
-    <ul>
-      <li>
-        Таплинки под соцсети 
-        <span class="tooltip">?
-          <span class="tooltip-text">Таплинк — это страница с несколькими ссылками</span>
-        </span>
-      </li>
-      <li>
-        Мультиссылки с кнопками и медиа 
-        <span class="tooltip">?
-          <span class="tooltip-text">Можно использовать как цифровую визитку</span>
-        </span>
-      </li>
-      <li>
-        Адаптивный дизайн 
-        <span class="tooltip">?
-          <span class="tooltip-text">Работает на любом устройстве</span>
-        </span>
-      </li>
-    </ul>
-  </div>
-</section>
+  <!-- Подвал -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Руслан Кондратьев. Все права защищены.</p>
+    </div>
+  </footer>
 
-<!-- Подвал -->
-<footer class="footer">
-  <div class="container">
-    <p>&copy; 2025 Руслан Кондратьев. Все права защищены.</p>
+  <!-- Модальное окно -->
+  <div class="modal" id="contactModal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <img src="https://raw.githubusercontent.com/RuslanRuslan89/r/main/img/me.jpg" alt="Руслан Кондратьев" class="avatar" />
+      <h2>Свяжитесь со мной</h2>
+      <form id="modal-contact-form">
+        <div class="form-group">
+          <i class="fas fa-user icon"></i>
+          <input type="text" id="modal-name" placeholder="Ваше имя" required />
+          <span class="tooltip">?
+            <span class="tooltip-text">Например: Иван Иванов</span>
+          </span>
+        </div>
+        <div class="form-group">
+          <i class="fas fa-envelope icon"></i>
+          <input type="email" id="modal-email" placeholder="Email" required />
+          <span class="tooltip">?
+            <span class="tooltip-text">На этот email придет ответ</span>
+          </span>
+        </div>
+        <div class="form-group">
+          <i class="fas fa-comment-dots icon"></i>
+          <textarea id="modal-message" rows="5" placeholder="Как я могу помочь?" required></textarea>
+          <span class="tooltip">?
+            <span class="tooltip-text">Кратко опиши свой запрос</span>
+          </span>
+        </div>
+        <button type="submit" class="submit-btn">Отправить сообщение &rarr;</button>
+      </form>
+    </div>
   </div>
-</footer>
-
-<!-- Модальное окно -->
-<div class="modal" id="contactModal">
-  <div class="modal-content">
-    <span class="close-btn">&times;</span>
-    <img src="https://raw.githubusercontent.com/RuslanRuslan89/r/main/img/me.jpg"  alt="Руслан Кондратьев" class="avatar" />
-    <h2>Свяжитесь со мной</h2>
-    <form id="modal-contact-form">
-      <div class="form-group">
-        <i class="fas fa-user icon"></i>
-        <input type="text" id="modal-name" placeholder="Ваше имя" required />
-        <span class="tooltip">?
-          <span class="tooltip-text">Например: Иван Иванов</span>
-        </span>
-      </div>
-      <div class="form-group">
-        <i class="fas fa-envelope icon"></i>
-        <input type="email" id="modal-email" placeholder="Email" required />
-        <span class="tooltip">?
-          <span class="tooltip-text">На этот email придет ответ</span>
-        </span>
-      </div>
-      <div class="form-group">
-        <i class="fas fa-comment-dots icon"></i>
-        <textarea id="modal-message" rows="5" placeholder="Как я могу помочь?" required></textarea>
-        <span class="tooltip">?
-          <span class="tooltip-text">Кратко опиши свой запрос</span>
-        </span>
-      </div>
-      <button type="submit" class="submit-btn">Отправить сообщение &rarr;</button>
-    </form>
-  </div>
-</div>
 </body>
 </html>
