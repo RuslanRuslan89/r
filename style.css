@@ -446,3 +446,30 @@ body {
     display: none;
   }
 }
+/* === Базовый стиль с новыми шрифтами === */
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  background-color: #f9f9f9;
+  color: #333;
+  scroll-behavior: smooth;
+}
+
+/* === Заголовки с Playfair Display === */
+h1, h2, h3, h4 {
+  font-family: 'Playfair Display', serif;
+  margin-top: 0;
+}
+
+/* === Подвал с курсивом === */
+.footer {
+  background: #2e085e;
+  color: #ddd;
+  padding: 2.5rem 0;
+  text-align: center;
+}
+
+.footer p {
+  margin: 0;
+  font-style: italic; /* ✅ Теперь текст курсивом */
+}
