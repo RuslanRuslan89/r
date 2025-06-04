@@ -473,3 +473,59 @@ h1, h2, h3, h4 {
   margin: 0;
   font-style: italic; /* ✅ Теперь текст курсивом */
 }
+:root {
+  --bg-color: #f9f9f9;
+  --text-color: #333;
+  --card-bg: white;
+  --link-color: #7e57c2;
+  --footer-bg: #2e085e;
+  --footer-text: #ddd;
+}
+
+:root.dark-theme {
+  --bg-color: #121212;
+  --text-color: #f8f9fa;
+  --card-bg: #1e1e1e;
+  --link-color: #ce93d8;
+  --footer-bg: #1a1a1a;
+  --footer-text: #ccc;
+}
+/* === Базовый стиль текста === */
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+/* === Заголовки === */
+h1, h2, h3, h4 {
+  font-family: 'Playfair Display', serif;
+  margin-top: 0;
+  color: var(--text-color);
+}
+
+/* === Ссылки === */
+a {
+  color: var(--link-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #ce93d8;
+}
+
+/* === Подвал с курсивом === */
+.footer {
+  background: var(--footer-bg);
+  color: var(--footer-text);
+  padding: 2.5rem 0;
+  text-align: center;
+}
+
+.footer p {
+  font-style: italic;
+  margin: 0;
+}
